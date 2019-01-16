@@ -2,10 +2,12 @@ package com.example.gymapi;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,11 +32,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    RecyclerView mRecycler;
-    ExerciseAdapter mAdapter;
-
-    List<ExerciseList> exercisesCATList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,31 +90,21 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_workouts) {
+
+            Intent inten = new Intent(this,WorkoutActivity.class);
+            startActivity(inten);
+
             Log.d(TAG, "onCreate: workouts");
-            // Handle the camera action
+
         } else if (id == R.id.nav_diets) {
             Log.d(TAG, "onCreate: diet");
 
         } else if (id == R.id.nav_exercises) {
 
-            mRecycler = findViewById(R.id.main_recycler);
-            mRecycler.setHasFixedSize(true);
-            mRecycler.setLayoutManager(new GridLayoutManager(this,2));
-
-            ExerciseViewModel model = ViewModelProviders.of(this).get(ExerciseViewModel.class);
-
-            model.getExercises().observe(this, new Observer<List<Result>>() {
-                @Override
-                public void onChanged(@Nullable List<Result> exerciseList) {
-                    mAdapter = new ExerciseAdapter(MainActivity.this, exercisesCATList);
-                    mRecycler.setAdapter(mAdapter);
-                }
-            });
+            Intent intent = new Intent(this,CategoryActivity.class);
+            startActivity(intent);
 
             Log.d(TAG, "onCreate: exercise");
-
-
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

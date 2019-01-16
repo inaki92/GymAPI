@@ -16,13 +16,12 @@ public interface API_Request {
     String Exercises_url = "api/v2/exercisecategory/";
     String Workout_url = "api/v2/workout/";
 
+    @GET(Exercises_url)
+    Call<ExerciseList> getExercises();
 
     @Headers("Authorization: Token 3c89a48079cf871cd0afa83d368eef78fca86219")
-    @GET(Exercises_url)
-    Call<List<Result>> getExercises();
-
     @GET(Workout_url)
-    Call<List<Wresult>> getWorkouts();
+    Call<Wresult> getWorkouts();
 
 
 }

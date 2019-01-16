@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.gymapi.Model.ExerciseCategory.ExerciseList;
+import com.example.gymapi.Model.ExerciseCategory.Result;
 import com.example.gymapi.R;
 
 import java.util.List;
@@ -19,9 +20,9 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     private static final String TAG = ExerciseAdapter.class.getSimpleName();
 
     Context mCtx;
-    List<ExerciseList> ExerciseList;
+    ExerciseList ExerciseList;
 
-    public ExerciseAdapter(Context mCtx, List<ExerciseList> excersiseList){
+    public ExerciseAdapter(Context mCtx, ExerciseList excersiseList){
         this.mCtx = mCtx;
         this.ExerciseList = excersiseList;
 
@@ -58,14 +59,18 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
 
     @Override
     public void onBindViewHolder(@NonNull ExerciseAdapter.ExerciseViewHolder exerciseViewHolder, int i) {
-        final ExerciseList exersise =ExerciseList.get(i);
+        if(ExerciseList != null){
+        exerciseViewHolder.muscleName.setText(ExerciseList.getResults().get(i).getName());
 
-        exerciseViewHolder.muscleName.setText(ExerciseList.get(i).getResults().get(i).getName());
-        Log.d(TAG, "onCreate: holder");
+        Log.d(TAG, "onCreate: holder musculo "+ExerciseList.getResults().get(i).getName());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return ExerciseList.size();
+        if(ExerciseList != null)
+        return ExerciseList.getResults().size();
+        else
+            return 0;
     }
 }
