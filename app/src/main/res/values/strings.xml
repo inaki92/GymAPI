@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ElectroGains Work out</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">EVERYDAY IS A GOOD DAY TO WORKOUT</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="workouts">WORKOUTS</string>
+    <string name="diets">DIETS</string>
+    <string name="exercises">EXERCISES</string>
+</resources>
