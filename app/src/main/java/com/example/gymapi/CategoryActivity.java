@@ -11,10 +11,7 @@ import android.util.Log;
 
 import com.example.gymapi.Adapter.ExerciseAdapter;
 import com.example.gymapi.Model.ExerciseCategory.ExerciseList;
-import com.example.gymapi.Model.ExerciseCategory.Result;
 import com.example.gymapi.ViewModel.ExerciseViewModel;
-
-import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity {
 public static final String TAG = CategoryActivity.class.getSimpleName();

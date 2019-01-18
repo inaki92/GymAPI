@@ -1,32 +1,16 @@
 package com.example.gymapi;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.example.gymapi.Adapter.ExerciseAdapter;
-import com.example.gymapi.Model.ExerciseCategory.ExerciseList;
-import com.example.gymapi.Model.ExerciseCategory.Result;
-import com.example.gymapi.ViewModel.ExerciseViewModel;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -97,6 +81,10 @@ public class MainActivity extends AppCompatActivity
             Log.d(TAG, "onCreate: workouts");
 
         } else if (id == R.id.nav_diets) {
+
+            Intent dietint = new Intent(this,NutritionPlanActivity.class);
+            startActivity(dietint);
+
             Log.d(TAG, "onCreate: diet");
 
         } else if (id == R.id.nav_exercises) {

@@ -22,7 +22,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            app:srcCompat="@android:color/holo_green_light" />
+            app:srcCompat="@mipmap/ic_logo" />
 
         <TextView
             android:id="@+id/workout_name"

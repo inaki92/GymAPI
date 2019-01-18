@@ -1,6 +1,7 @@
 package com.example.gymapi.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.example.gymapi.Model.ExerciseCategory.ExerciseList;
 import com.example.gymapi.Model.ExerciseCategory.Result;
 import com.example.gymapi.R;
+import com.example.gymapi.WorkoutActivity;
 
 import java.util.List;
 
@@ -37,15 +39,13 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
 
             muscleName = itemView.findViewById(R.id.muscle_name);
 
-            /*itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mCtx,BioActivity.class);
-                    intent.putExtra("bio",heroBio);
-                    intent.putExtra("realname",heroRealName);
+                    Intent intent = new Intent(mCtx, WorkoutActivity.class);
                     mCtx.startActivity(intent);
                 }
-            });*/
+            });
         }
     }
 
@@ -58,19 +58,16 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExerciseAdapter.ExerciseViewHolder exerciseViewHolder, int i) {
-        if(ExerciseList != null){
+    public void onBindViewHolder(@NonNull ExerciseViewHolder exerciseViewHolder, int i) {
+
         exerciseViewHolder.muscleName.setText(ExerciseList.getResults().get(i).getName());
 
         Log.d(TAG, "onCreate: holder musculo "+ExerciseList.getResults().get(i).getName());
-        }
+
     }
 
     @Override
     public int getItemCount() {
-        if(ExerciseList != null)
         return ExerciseList.getResults().size();
-        else
-            return 0;
     }
 }

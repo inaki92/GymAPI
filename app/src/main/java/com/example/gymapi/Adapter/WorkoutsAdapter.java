@@ -14,6 +14,8 @@ import com.example.gymapi.R;
 
 public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.WorkoutViewHolder> {
 
+    private static final String TAG = WorkoutsAdapter.class.getSimpleName();
+
     Context mCtx;
     Wresult workoutList;
 
@@ -31,16 +33,6 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
             super(itemView);
 
             routineName = itemView.findViewById(R.id.workout_name);
-
-            /*itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mCtx,BioActivity.class);
-                    intent.putExtra("bio",heroBio);
-                    intent.putExtra("realname",heroRealName);
-                    mCtx.startActivity(intent);
-                }
-            });*/
         }
     }
 
@@ -52,18 +44,17 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.Workou
     }
 
     @Override
-    public void onBindViewHolder(@NonNull WorkoutsAdapter.WorkoutViewHolder workoutViewHolder, int i) {
-        if(workoutList != null) {
+    public void onBindViewHolder(@NonNull WorkoutViewHolder workoutViewHolder, int i) {
+
             workoutViewHolder.routineName.setText(workoutList.getResults().get(i).getComment());
-        }
+
+            Log.d(TAG, "onCreate: holder rutina "+workoutList.getResults().get(i).getComment());
+
 
     }
 
     @Override
     public int getItemCount() {
-        if(workoutList != null)
             return workoutList.getResults().size();
-        else
-            return 0;
     }
 }

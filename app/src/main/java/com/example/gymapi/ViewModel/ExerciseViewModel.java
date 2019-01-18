@@ -29,17 +29,6 @@ public class ExerciseViewModel extends ViewModel {
         return ExerciseList;
     }
 
-    private MutableLiveData<Wresult> WorkoutsList;
-
-    public LiveData<Wresult> getWorkouts(){
-
-        if (WorkoutsList == null){
-            WorkoutsList = new MutableLiveData<Wresult>();
-            loadWorkouts();
-        }
-        return WorkoutsList;
-    }
-
     private void loadExercises(){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(API_Request.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -58,29 +47,6 @@ public class ExerciseViewModel extends ViewModel {
             @Override
             public void onFailure(Call<ExerciseList> call, Throwable t) {
                 Log.e(TAG, "onFailure: "+t.getMessage());
-            }
-        });
-    }
-
-    private void loadWorkouts(){
-
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(API_Request.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        API_Request workoutsAPI = retrofit.create(API_Request.class);
-        Call<Wresult> callWorkout = workoutsAPI.getWorkouts();
-
-        callWorkout.enqueue(new Callback<Wresult>() {
-            @Override
-            public void onResponse(Call<Wresult> cal, Response<Wresult> respons) {
-                //setting the list to our MutableLiveData
-                WorkoutsList.setValue(respons.body());
-            }
-
-            @Override
-            public void onFailure(Call<Wresult> cal, Throwable th) {
-                Log.e(TAG, "onFailure: "+th.getMessage());
             }
         });
     }

@@ -1,11 +1,11 @@
-package com.example.gymapi.Model.Workout;
+package com.example.gymapi.Model.NutritionPlan;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Wresult {
+public class NutritionObject {
 
     @SerializedName("count")
     @Expose
@@ -18,7 +18,7 @@ public class Wresult {
     private Object previous;
     @SerializedName("results")
     @Expose
-    private List<workouts> results = null;
+    private List<Diets> results = null;
 
     public Integer getCount() {
         return count;
@@ -44,11 +44,11 @@ public class Wresult {
         this.previous = previous;
     }
 
-    public List<workouts> getResults() {
+    public List<Diets> getResults() {
         return results;
     }
 
-    public void setResults(List<workouts> results) {
+    public void setResults(List<Diets> results) {
         this.results = results;
     }
 }
