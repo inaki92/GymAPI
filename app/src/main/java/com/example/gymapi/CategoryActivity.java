@@ -11,7 +11,7 @@ import android.util.Log;
 
 import com.example.gymapi.Adapter.ExerciseAdapter;
 import com.example.gymapi.Model.ExerciseCategory.ExerciseList;
-import com.example.gymapi.ViewModel.ExerciseViewModel;
+import com.example.gymapi.ViewModel.FullViewModel;
 
 public class CategoryActivity extends AppCompatActivity {
 public static final String TAG = CategoryActivity.class.getSimpleName();
@@ -29,7 +29,7 @@ public static final String TAG = CategoryActivity.class.getSimpleName();
         mRecycler.setHasFixedSize(true);
         mRecycler.setLayoutManager(new GridLayoutManager(this,2));
 
-        ExerciseViewModel model = ViewModelProviders.of(this).get(ExerciseViewModel.class);
+        FullViewModel model = ViewModelProviders.of(this).get(FullViewModel.class);
 
         model.getExercises().observe(this, new Observer<ExerciseList>() {
             @Override

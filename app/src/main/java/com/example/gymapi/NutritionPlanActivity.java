@@ -11,7 +11,7 @@ import android.util.Log;
 
 import com.example.gymapi.Adapter.NutritionAdapter;
 import com.example.gymapi.Model.NutritionPlan.NutritionObject;
-import com.example.gymapi.ViewModel.NutritionPlanViewModel;
+import com.example.gymapi.ViewModel.FullViewModel;
 
 public class NutritionPlanActivity extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class NutritionPlanActivity extends AppCompatActivity {
         nutRecycler.setHasFixedSize(true);
         nutRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        NutritionPlanViewModel model = ViewModelProviders.of(this).get(NutritionPlanViewModel.class);
+        FullViewModel model = ViewModelProviders.of(this).get(FullViewModel.class);
 
         model.getNutritionPlans().observe(this, new Observer<NutritionObject>() {
             @Override
