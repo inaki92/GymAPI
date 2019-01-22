@@ -11,11 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.gymapi.Model.ExerciseCategory.ExerciseList;
-import com.example.gymapi.Model.ExerciseCategory.Result;
 import com.example.gymapi.R;
-import com.example.gymapi.WorkoutActivity;
-
-import java.util.List;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
 
@@ -42,8 +38,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mCtx, WorkoutActivity.class);
-                    mCtx.startActivity(intent);
+
                 }
             });
         }

@@ -13,4 +13,7 @@
     <string name="beast_mode">BEAST MODE</string>
     <string name="rule21">USE THE RULE 21/90: It takes 21 days to create a habit. It takes 90 days to create a lifestyle.</string>
     <string name="future">The best way to predict the future is to create it.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
